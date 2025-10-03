@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiches Publicitaires ESODI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E86AB;
+            --secondary: #A23B72;
+            --accent: #F18F01;
+            --success: #27AE60;
+            --danger: #E74C3C;
+            --lightbg: #F8F9FA;
+            --darkbg: #2C3E50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .poster {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .poster:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .poster-header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .poster-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .poster-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .poster-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .poster-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .concept-box {
+            background: var(--accent);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .pricing-box {
+            background: var(--lightbg);
+            border: 2px solid var(--success);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--success);
+            margin: 10px 0;
+        }
+
+        .visit-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .visit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+        }
+
+        .contact-bar {
+            background: var(--darkbg);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .website-link {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .website-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Couleurs spécifiques par projet */
+        .visio-educ { border-left: 5px solid var(--accent); }
+        .eds { border-left: 5px solid var(--secondary); }
+        .corrige-plus { border-left: 5px solid var(--primary); }
+        .jeanskodoc-ept { border-left: 5px solid var(--success); }
+        .tontine { border-left: 5px solid var(--danger); }
+        .boutique { border-left: 5px solid #9B59B6; }
+        .ecommerce { border-left: 5px solid #E67E22; }
+        .transtogo { border-left: 5px solid #34495E; }
+        .facture { border-left: 5px solid #16A085; }
+        .carte-virtuelle { border-left: 5px solid #2980B9; }
+
+        @media (max-width: 768px) {
+            .posters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <!-- Remplacez cette div par votre image logo.jpg -->
+                    <div class="logo-placeholder">
+                        ESODI
+                    </div>
+                    <!-- 
+                    Pour utiliser votre logo, remplacez la div ci-dessus par :
+                    <img src="logo.jpg" alt="ESODI Logo" onerror="this.style.display='none'; this.parentElement.querySelector('.logo-placeholder').style.display='flex';">
+                    -->
+                </div>
+            </div>
+            <h1>ESODI - Écosystème de Solutions Digitales</h1>
+            <p>Innovation, Performance et Accessibilité pour Tous</p>
+            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Visiter Notre Portfolio Complet
+            </a>
+        </div>
+
+        <div class="posters-grid">
+            <!-- VISIO-EDUC -->
+            <div class="poster visio-educ">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="poster-title">VISIO-EDUC</div>
+                    <div class="poster-subtitle">L'Éducation Sans Frontières</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box">
+                        <i class="fas fa-lightbulb"></i> Plateforme éducative complète
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-video"></i></span> Classes virtuelles interactives</li>
+                        <li><span class="feature-icon"><i class="fas fa-book-open"></i></span> Bibliothèque digitale illimitée</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-graduate"></i></span> Suivi personnalisé</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-line"></i></span> Analytics avancés</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">500 FCFA/semaine</div>
+                        <small>Forfaits famille et établissements disponibles</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- EDS -->
+            <div class="poster eds">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="poster-title">EDS</div>
+                    <div class="poster-subtitle">Gestion Scolaire Intelligente</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: var(--secondary);">
+                        <i class="fas fa-lightbulb"></i> Suite logicielle complète
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-calendar-alt"></i></span> Emplois du temps dynamiques</li>
+                        <li><span class="feature-icon"><i class="fas fa-comments"></i></span> Communication unifiée</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-bar"></i></span> Analytics scolaires</li>
+                        <li><span class="feature-icon"><i class="fas fa-robot"></i></span> Automatisation des rapports</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">Installation GRATUITE</div>
+                        <small>Compte Parent: 1,000 FCFA/an • Enseignant: 2,000 FCFA/an</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Corrigé Plus -->
+            <div class="poster corrige-plus">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="poster-title">Corrigé Plus</div>
+                    <div class="poster-subtitle">Excellence Académique Sur Mesure</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box">
+                        <i class="fas fa-lightbulb"></i> Accompagnement personnalisé
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-file-pdf"></i></span> Corrigés experts détaillés</li>
+                        <li><span class="feature-icon"><i class="fas fa-cogs"></i></span> Méthodologies éprouvées</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-tie"></i></span> Tutorat VIP individuel</li>
+                        <li><span class="feature-icon"><i class="fas fa-trophy"></i></span> Préparation concours</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">Flexibilité totale</div>
+                        <small>Forfaits adaptés à chaque besoin</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- JEANSKODOC EPT -->
+            <div class="poster jeanskodoc-ept">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="poster-title">JEANSKODOC EPT</div>
+                    <div class="poster-subtitle">Formation Professionnelle d'Excellence</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: var(--success);">
+                        <i class="fas fa-lightbulb"></i> Formation 360° complète
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-certificate"></i></span> Certifications reconnues</li>
+                        <li><span class="feature-icon"><i class="fas fa-briefcase"></i></span> Accompagnement entrepreneuriat</li>
+                        <li><span class="feature-icon"><i class="fas fa-network-wired"></i></span> Réseau alumni influent</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-check"></i></span> Garantie d'emploi</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">Formation sur mesure</div>
+                        <small>Devis personnalisé • Paiement échelonné</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tontine Digitale -->
+            <div class="poster tontine">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="poster-title">Tontine Digitale</div>
+                    <div class="poster-subtitle">Solidarité 2.0</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: var(--danger);">
+                        <i class="fas fa-lightbulb"></i> Digitalisation collaborative
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-calculator"></i></span> Gestion automatisée</li>
+                        <li><span class="feature-icon"><i class="fas fa-bell"></i></span> Alertes intelligentes</li>
+                        <li><span class="feature-icon"><i class="fas fa-university"></i></span> Sécurité bancaire</li>
+                        <li><span class="feature-icon"><i class="fas fa-eye"></i></span> Transparence totale</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">10,000 FCFA + 2,000 FCFA/mois</div>
+                        <small>Premier mois offert</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gestion de Boutique -->
+            <div class="poster boutique">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="poster-title">Gestion de Boutique</div>
+                    <div class="poster-subtitle">Commerce Optimisé</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: #9B59B6;">
+                        <i class="fas fa-lightbulb"></i> Solution commerce unifiée
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-boxes"></i></span> Gestion des stocks temps réel</li>
+                        <li><span class="feature-icon"><i class="fas fa-money-bill-wave"></i></span> Analyse financière détaillée</li>
+                        <li><span class="feature-icon"><i class="fas fa-truck"></i></span> Gestion partenaires centralisée</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-pie"></i></span> Rapports intelligents</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">100,000 FCFA + 50,000 FCFA/mois</div>
+                        <small>Essai gratuit de 30 jours</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- E-Commerce -->
+            <div class="poster ecommerce">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="poster-title">E-Commerce</div>
+                    <div class="poster-subtitle">Vente en Ligne</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: #E67E22;">
+                        <i class="fas fa-lightbulb"></i> Boutique en ligne complète
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-laptop"></i></span> Site web responsive</li>
+                        <li><span class="feature-icon"><i class="fas fa-credit-card"></i></span> Paiements sécurisés multiples</li>
+                        <li><span class="feature-icon"><i class="fas fa-shipping-fast"></i></span> Gestion livraison</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-bar"></i></span> Analytics ventes</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">70,000 FCFA + 40,000 FCFA/mois</div>
+                        <small>Essai gratuit de 30 jours</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- TRANSTOGO -->
+            <div class="poster transtogo">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="poster-title">TRANSTOGO</div>
+                    <div class="poster-subtitle">Mobilité Connectée</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: #34495E;">
+                        <i class="fas fa-lightbulb"></i> Transport intelligent
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-map-marker-alt"></i></span> Réservation en ligne</li>
+                        <li><span class="feature-icon"><i class="fas fa-route"></i></span> Optimisation parcours</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-shield"></i></span> Conducteurs vérifiés</li>
+                        <li><span class="feature-icon"><i class="fas fa-money-check"></i></span> Paiement digital</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">5,000 FCFA + 2,000 FCFA/mois</div>
+                        <small>Essai gratuit de 30 jours</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Facture Digitalisée -->
+            <div class="poster facture">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="poster-title">Facture Digitalisée</div>
+                    <div class="poster-subtitle">Gestion Simplifiée</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: #16A085;">
+                        <i class="fas fa-lightbulb"></i> Automatisation des factures
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-magic"></i></span> Génération automatique</li>
+                        <li><span class="feature-icon"><i class="fas fa-database"></i></span> Archivage sécurisé cloud</li>
+                        <li><span class="feature-icon"><i class="fas fa-search"></i></span> Recherche intelligente</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-line"></i></span> Analytics financiers</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">À partir de 5,000 FCFA/mois</div>
+                        <small>Essai gratuit de 30 jours</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Carte Virtuelle -->
+            <div class="poster carte-virtuelle">
+                <div class="poster-header">
+                    <div class="poster-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="poster-title">Carte Virtuelle</div>
+                    <div class="poster-subtitle">Paiements Sécurisés</div>
+                </div>
+                <div class="poster-content">
+                    <div class="concept-box" style="background: #2980B9;">
+                        <i class="fas fa-lightbulb"></i> Paiements 2.0
+                    </div>
+                    <ul class="features-list">
+                        <li><span class="feature-icon"><i class="fas fa-lock"></i></span> Chiffrement militaire</li>
+                        <li><span class="feature-icon"><i class="fas fa-clock"></i></span> Cartes éphémères</li>
+                        <li><span class="feature-icon"><i class="fas fa-eye-slash"></i></span> Confidentialité totale</li>
+                        <li><span class="feature-icon"><i class="fas fa-bell"></i></span> Alertes temps réel</li>
+                    </ul>
+                    <div class="pricing-box">
+                        <div class="price">5,000 FCFA/2 ans + 500 FCFA/mois</div>
+                        <small>Essai gratuit de 30 jours</small>
+                    </div>
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="visit-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visiter le Projet
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <h3>Prêt à Transformer Votre Avenir Digital ?</h3>
+            <p>Contactez-nous dès aujourd'hui pour une consultation gratuite !</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>92 87 16 05</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>jeanskodoc22@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>KARA, Togo</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>www.esodi-togo.com</span>
+                </div>
+            </div>
+            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank" style="margin-top: 20px;">
+                <i class="fas fa-external-link-alt"></i> Découvrir Tous Nos Projets en Ligne
+            </a>
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                <i class="fas fa-user-tie"></i> 
+                <strong>KOLA MANIWAH ESSOHOUNA</strong> - Fondateur d'ESODI | Expert en Transformation Digitale
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            const posters = document.querySelectorAll('.poster');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            posters.forEach(poster => {
+                poster.style.opacity = '0';
+                poster.style.transform = 'translateY(50px)';
+                poster.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(poster);
+            });
+
+            // Gestion du logo - version avec image
+            const logoContainer = document.querySelector('.logo');
+            const logoPlaceholder = logoContainer.querySelector('.logo-placeholder');
+            
+            // Créer l'élément image pour le logo
+            const logoImg = new Image();
+            logoImg.src = 'logo.jpg';
+            logoImg.alt = 'ESODI Logo';
+            logoImg.style.width = '100%';
+            logoImg.style.height = '100%';
+            logoImg.style.objectFit = 'contain';
+            logoImg.style.borderRadius = '50%';
+            
+            logoImg.onload = function() {
+                // Si l'image charge correctement, remplacer le placeholder
+                logoPlaceholder.style.display = 'none';
+                logoContainer.appendChild(logoImg);
+            };
+            
+            logoImg.onerror = function() {
+                // Si l'image ne charge pas, garder le placeholder
+                console.log('Logo image not found, using placeholder');
+            };
+        });
+    </script>
+</body>
+</html>
