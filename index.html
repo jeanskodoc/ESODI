@@ -20,13 +20,16 @@
             --danger: #E74C3C;
             --lightbg: #F8F9FA;
             --darkbg: #2C3E50;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 15px rgba(0,0,0,0.15);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            padding: 15px;
             min-height: 100vh;
+            line-height: 1.5;
         }
 
         .container {
@@ -36,11 +39,11 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 25px 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             position: relative;
         }
 
@@ -48,21 +51,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 8px;
         }
 
         .logo img {
@@ -81,22 +84,34 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--darkbg);
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
         }
 
         .posters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
         .poster {
             background: white;
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             display: flex;
@@ -104,35 +119,35 @@
         }
 
         .poster:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .poster-header {
             background: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         .poster-icon {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
         }
 
         .poster-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 5px;
         }
 
         .poster-subtitle {
-            font-size: 1rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
 
         .poster-content {
-            padding: 25px;
+            padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -141,23 +156,25 @@
         .concept-box {
             background: var(--accent);
             color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             text-align: center;
+            font-size: 0.9rem;
         }
 
         .features-list {
             list-style: none;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-grow: 1;
         }
 
         .features-list li {
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
+            font-size: 0.9rem;
         }
 
         .features-list li:last-child {
@@ -167,45 +184,51 @@
         .feature-icon {
             color: var(--accent);
             margin-right: 10px;
-            font-size: 1.2rem;
-            width: 25px;
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
         }
 
         .pricing-box {
             background: var(--lightbg);
             border: 2px solid var(--success);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 8px;
+            padding: 12px;
             text-align: center;
-            margin: 15px 0;
+            margin: 12px 0;
         }
 
         .price {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: bold;
             color: var(--success);
-            margin: 10px 0;
+            margin: 8px 0;
+        }
+
+        .pricing-box small {
+            font-size: 0.75rem;
         }
 
         .visit-button {
             display: inline-block;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
             text-align: center;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            font-size: 0.9rem;
         }
 
         .visit-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             background: linear-gradient(45deg, var(--secondary), var(--primary));
         }
 
@@ -214,34 +237,46 @@
             color: white;
             padding: 20px;
             text-align: center;
-            border-radius: 15px;
-            margin-top: 30px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .contact-bar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-bar p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 12px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            font-size: 0.9rem;
         }
 
         .website-link {
             display: inline-block;
             background: var(--accent);
             color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 12px;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .website-link:hover {
@@ -250,31 +285,153 @@
         }
 
         /* Couleurs spécifiques par projet */
-        .visio-educ { border-left: 5px solid var(--accent); }
-        .eds { border-left: 5px solid var(--secondary); }
-        .corrige-plus { border-left: 5px solid var(--primary); }
-        .jeanskodoc-ept { border-left: 5px solid var(--success); }
-        .tontine { border-left: 5px solid var(--danger); }
-        .boutique { border-left: 5px solid #9B59B6; }
-        .ecommerce { border-left: 5px solid #E67E22; }
-        .transtogo { border-left: 5px solid #34495E; }
-        .facture { border-left: 5px solid #16A085; }
-        .carte-virtuelle { border-left: 5px solid #2980B9; }
+        .visio-educ { border-left: 4px solid var(--accent); }
+        .eds { border-left: 4px solid var(--secondary); }
+        .corrige-plus { border-left: 4px solid var(--primary); }
+        .jeanskodoc-ept { border-left: 4px solid var(--success); }
+        .tontine { border-left: 4px solid var(--danger); }
+        .boutique { border-left: 4px solid #9B59B6; }
+        .ecommerce { border-left: 4px solid #E67E22; }
+        .transtogo { border-left: 4px solid #34495E; }
+        .facture { border-left: 4px solid #16A085; }
+        .carte-virtuelle { border-left: 4px solid #2980B9; }
 
-        @media (max-width: 768px) {
+        /* Améliorations pour les très petits écrans */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px 10px;
+                margin-bottom: 20px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .header p {
+                font-size: 0.85rem;
+            }
+            
             .posters-grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .poster-header {
+                padding: 12px;
+            }
+            
+            .poster-icon {
+                font-size: 1.8rem;
+            }
+            
+            .poster-title {
+                font-size: 1.1rem;
+            }
+            
+            .poster-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .poster-content {
+                padding: 15px;
+            }
+            
+            .concept-box {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+            
+            .features-list li {
+                font-size: 0.85rem;
+                padding: 7px 0;
+            }
+            
+            .pricing-box {
+                padding: 10px;
+            }
+            
+            .price {
+                font-size: 1rem;
+            }
+            
+            .visit-button, .website-link {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .contact-bar {
+                padding: 15px;
+            }
+            
+            .contact-bar h3 {
+                font-size: 1.1rem;
+            }
+            
+            .contact-bar p {
+                font-size: 0.85rem;
             }
             
             .contact-info {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
             }
             
-            .logo {
-                width: 100px;
-                height: 100px;
+            .contact-item {
+                justify-content: center;
             }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .posters-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 18px;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+        }
+
+        /* Amélioration de l'accessibilité */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .poster:hover {
+                transform: none;
+            }
+            
+            .visit-button:hover, .website-link:hover {
+                transform: none;
+            }
+        }
+
+        /* Amélioration du contraste pour l'accessibilité */
+        .concept-box, .visit-button, .website-link {
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Amélioration du focus pour navigation au clavier */
+        .visit-button:focus, .website-link:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -295,7 +452,7 @@
             </div>
             <h1>ESODI - Écosystème de Solutions Digitales</h1>
             <p>Innovation, Performance et Accessibilité pour Tous</p>
-            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank">
+            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank" aria-label="Visiter notre portfolio complet">
                 <i class="fas fa-external-link-alt"></i> Visiter Notre Portfolio Complet
             </a>
         </div>
@@ -305,26 +462,26 @@
             <div class="poster visio-educ">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">VISIO-EDUC</div>
                     <div class="poster-subtitle">L'Éducation Sans Frontières</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box">
-                        <i class="fas fa-lightbulb"></i> Plateforme éducative complète
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Plateforme éducative complète
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-video"></i></span> Classes virtuelles interactives</li>
-                        <li><span class="feature-icon"><i class="fas fa-book-open"></i></span> Bibliothèque digitale illimitée</li>
-                        <li><span class="feature-icon"><i class="fas fa-user-graduate"></i></span> Suivi personnalisé</li>
-                        <li><span class="feature-icon"><i class="fas fa-chart-line"></i></span> Analytics avancés</li>
+                        <li><span class="feature-icon"><i class="fas fa-video" aria-hidden="true"></i></span> Classes virtuelles interactives</li>
+                        <li><span class="feature-icon"><i class="fas fa-book-open" aria-hidden="true"></i></span> Bibliothèque digitale illimitée</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-graduate" aria-hidden="true"></i></span> Suivi personnalisé</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></span> Analytics avancés</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">500 FCFA/semaine</div>
                         <small>Forfaits famille et établissements disponibles</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/P1.html" class="visit-button" target="_blank" aria-label="Visiter le projet VISIO-EDUC">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -334,26 +491,26 @@
             <div class="poster eds">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-university"></i>
+                        <i class="fas fa-university" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">EDS</div>
                     <div class="poster-subtitle">Gestion Scolaire Intelligente</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: var(--secondary);">
-                        <i class="fas fa-lightbulb"></i> Suite logicielle complète
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Suite logicielle complète
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-calendar-alt"></i></span> Emplois du temps dynamiques</li>
-                        <li><span class="feature-icon"><i class="fas fa-comments"></i></span> Communication unifiée</li>
-                        <li><span class="feature-icon"><i class="fas fa-chart-bar"></i></span> Analytics scolaires</li>
-                        <li><span class="feature-icon"><i class="fas fa-robot"></i></span> Automatisation des rapports</li>
+                        <li><span class="feature-icon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span> Emplois du temps dynamiques</li>
+                        <li><span class="feature-icon"><i class="fas fa-comments" aria-hidden="true"></i></span> Communication unifiée</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-bar" aria-hidden="true"></i></span> Analytics scolaires</li>
+                        <li><span class="feature-icon"><i class="fas fa-robot" aria-hidden="true"></i></span> Automatisation des rapports</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">Installation GRATUITE</div>
                         <small>Compte Parent: 1,000 FCFA/an • Enseignant: 2,000 FCFA/an</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/EDS/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/EDS/" class="visit-button" target="_blank" aria-label="Visiter le projet EDS">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -363,26 +520,26 @@
             <div class="poster corrige-plus">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-book"></i>
+                        <i class="fas fa-book" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">Corrigé Plus</div>
                     <div class="poster-subtitle">Excellence Académique Sur Mesure</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box">
-                        <i class="fas fa-lightbulb"></i> Accompagnement personnalisé
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Accompagnement personnalisé
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-file-pdf"></i></span> Corrigés experts détaillés</li>
-                        <li><span class="feature-icon"><i class="fas fa-cogs"></i></span> Méthodologies éprouvées</li>
-                        <li><span class="feature-icon"><i class="fas fa-user-tie"></i></span> Tutorat VIP individuel</li>
-                        <li><span class="feature-icon"><i class="fas fa-trophy"></i></span> Préparation concours</li>
+                        <li><span class="feature-icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span> Corrigés experts détaillés</li>
+                        <li><span class="feature-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span> Méthodologies éprouvées</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span> Tutorat VIP individuel</li>
+                        <li><span class="feature-icon"><i class="fas fa-trophy" aria-hidden="true"></i></span> Préparation concours</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">Flexibilité totale</div>
                         <small>Forfaits adaptés à chaque besoin</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/PUBLISHED-/P3.html" class="visit-button" target="_blank" aria-label="Visiter le projet Corrigé Plus">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -392,26 +549,26 @@
             <div class="poster jeanskodoc-ept">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">JEANSKODOC EPT</div>
                     <div class="poster-subtitle">Formation Professionnelle d'Excellence</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: var(--success);">
-                        <i class="fas fa-lightbulb"></i> Formation 360° complète
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Formation 360° complète
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-certificate"></i></span> Certifications reconnues</li>
-                        <li><span class="feature-icon"><i class="fas fa-briefcase"></i></span> Accompagnement entrepreneuriat</li>
-                        <li><span class="feature-icon"><i class="fas fa-network-wired"></i></span> Réseau alumni influent</li>
-                        <li><span class="feature-icon"><i class="fas fa-user-check"></i></span> Garantie d'emploi</li>
+                        <li><span class="feature-icon"><i class="fas fa-certificate" aria-hidden="true"></i></span> Certifications reconnues</li>
+                        <li><span class="feature-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span> Accompagnement entrepreneuriat</li>
+                        <li><span class="feature-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></span> Réseau alumni influent</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-check" aria-hidden="true"></i></span> Garantie d'emploi</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">Formation sur mesure</div>
                         <small>Devis personnalisé • Paiement échelonné</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/EPT/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/EPT/" class="visit-button" target="_blank" aria-label="Visiter le projet JEANSKODOC EPT">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -421,26 +578,26 @@
             <div class="poster tontine">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-users" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">Tontine Digitale</div>
                     <div class="poster-subtitle">Solidarité 2.0</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: var(--danger);">
-                        <i class="fas fa-lightbulb"></i> Digitalisation collaborative
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Digitalisation collaborative
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-calculator"></i></span> Gestion automatisée</li>
-                        <li><span class="feature-icon"><i class="fas fa-bell"></i></span> Alertes intelligentes</li>
-                        <li><span class="feature-icon"><i class="fas fa-university"></i></span> Sécurité bancaire</li>
-                        <li><span class="feature-icon"><i class="fas fa-eye"></i></span> Transparence totale</li>
+                        <li><span class="feature-icon"><i class="fas fa-calculator" aria-hidden="true"></i></span> Gestion automatisée</li>
+                        <li><span class="feature-icon"><i class="fas fa-bell" aria-hidden="true"></i></span> Alertes intelligentes</li>
+                        <li><span class="feature-icon"><i class="fas fa-university" aria-hidden="true"></i></span> Sécurité bancaire</li>
+                        <li><span class="feature-icon"><i class="fas fa-eye" aria-hidden="true"></i></span> Transparence totale</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">10,000 FCFA + 2,000 FCFA/mois</div>
                         <small>Premier mois offert</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/TONTINE/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/TONTINE/" class="visit-button" target="_blank" aria-label="Visiter le projet Tontine Digitale">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -450,26 +607,26 @@
             <div class="poster boutique">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-store"></i>
+                        <i class="fas fa-store" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">Gestion de Boutique</div>
                     <div class="poster-subtitle">Commerce Optimisé</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: #9B59B6;">
-                        <i class="fas fa-lightbulb"></i> Solution commerce unifiée
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Solution commerce unifiée
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-boxes"></i></span> Gestion des stocks temps réel</li>
-                        <li><span class="feature-icon"><i class="fas fa-money-bill-wave"></i></span> Analyse financière détaillée</li>
-                        <li><span class="feature-icon"><i class="fas fa-truck"></i></span> Gestion partenaires centralisée</li>
-                        <li><span class="feature-icon"><i class="fas fa-chart-pie"></i></span> Rapports intelligents</li>
+                        <li><span class="feature-icon"><i class="fas fa-boxes" aria-hidden="true"></i></span> Gestion des stocks temps réel</li>
+                        <li><span class="feature-icon"><i class="fas fa-money-bill-wave" aria-hidden="true"></i></span> Analyse financière détaillée</li>
+                        <li><span class="feature-icon"><i class="fas fa-truck" aria-hidden="true"></i></span> Gestion partenaires centralisée</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-pie" aria-hidden="true"></i></span> Rapports intelligents</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">100,000 FCFA + 50,000 FCFA/mois</div>
                         <small>Essai gratuit de 30 jours</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/E-Commerce-/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/E-Commerce-/" class="visit-button" target="_blank" aria-label="Visiter le projet Gestion de Boutique">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -479,26 +636,26 @@
             <div class="poster ecommerce">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">E-Commerce</div>
                     <div class="poster-subtitle">Vente en Ligne</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: #E67E22;">
-                        <i class="fas fa-lightbulb"></i> Boutique en ligne complète
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Boutique en ligne complète
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-laptop"></i></span> Site web responsive</li>
-                        <li><span class="feature-icon"><i class="fas fa-credit-card"></i></span> Paiements sécurisés multiples</li>
-                        <li><span class="feature-icon"><i class="fas fa-shipping-fast"></i></span> Gestion livraison</li>
-                        <li><span class="feature-icon"><i class="fas fa-chart-bar"></i></span> Analytics ventes</li>
+                        <li><span class="feature-icon"><i class="fas fa-laptop" aria-hidden="true"></i></span> Site web responsive</li>
+                        <li><span class="feature-icon"><i class="fas fa-credit-card" aria-hidden="true"></i></span> Paiements sécurisés multiples</li>
+                        <li><span class="feature-icon"><i class="fas fa-shipping-fast" aria-hidden="true"></i></span> Gestion livraison</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-bar" aria-hidden="true"></i></span> Analytics ventes</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">70,000 FCFA + 40,000 FCFA/mois</div>
                         <small>Essai gratuit de 30 jours</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/Ma-boutique-en-ligne-/" class="visit-button" target="_blank" aria-label="Visiter le projet E-Commerce">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -508,26 +665,26 @@
             <div class="poster transtogo">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-car"></i>
+                        <i class="fas fa-car" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">TRANSTOGO</div>
                     <div class="poster-subtitle">Mobilité Connectée</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: #34495E;">
-                        <i class="fas fa-lightbulb"></i> Transport intelligent
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Transport intelligent
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-map-marker-alt"></i></span> Réservation en ligne</li>
-                        <li><span class="feature-icon"><i class="fas fa-route"></i></span> Optimisation parcours</li>
-                        <li><span class="feature-icon"><i class="fas fa-user-shield"></i></span> Conducteurs vérifiés</li>
-                        <li><span class="feature-icon"><i class="fas fa-money-check"></i></span> Paiement digital</li>
+                        <li><span class="feature-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span> Réservation en ligne</li>
+                        <li><span class="feature-icon"><i class="fas fa-route" aria-hidden="true"></i></span> Optimisation parcours</li>
+                        <li><span class="feature-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></span> Conducteurs vérifiés</li>
+                        <li><span class="feature-icon"><i class="fas fa-money-check" aria-hidden="true"></i></span> Paiement digital</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">5,000 FCFA + 2,000 FCFA/mois</div>
                         <small>Essai gratuit de 30 jours</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/transport-Togo-" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/transport-Togo-" class="visit-button" target="_blank" aria-label="Visiter le projet TRANSTOGO">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -537,29 +694,29 @@
             <div class="poster facture">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-file-invoice"></i>
+                        <i class="fas fa-file-invoice" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">Facture Digitalisée</div>
                     <div class="poster-subtitle">Gestion Simplifiée</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: #16A085;">
-                        <i class="fas fa-lightbulb"></i> Automatisation des factures
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Automatisation des factures
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-magic"></i></span> Génération automatique</li>
-                        <li><span class="feature-icon"><i class="fas fa-database"></i></span> Archivage sécurisé cloud</li>
-                        <li><span class="feature-icon"><i class="fas fa-search"></i></span> Recherche intelligente</li>
-                        <li><span class="feature-icon"><i class="fas fa-chart-line"></i></span> Analytics financiers</li>
+                        <li><span class="feature-icon"><i class="fas fa-magic" aria-hidden="true"></i></span> Génération automatique</li>
+                        <li><span class="feature-icon"><i class="fas fa-database" aria-hidden="true"></i></span> Archivage sécurisé cloud</li>
+                        <li><span class="feature-icon"><i class="fas fa-search" aria-hidden="true"></i></span> Recherche intelligente</li>
+                        <li><span class="feature-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></span> Analytics financiers</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">À partir de 5,000 FCFA/mois</div>
                         <small>Essai gratuit de 30 jours</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/Factures-digitalis-es/" class="visit-button" target="_blank" aria-label="Visiter le projet Facture Digitalisée">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
-                     <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/RE-U-DE-LOYER/" class="visit-button" target="_blank" aria-label="Visiter le projet Reçu de Loyer">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -569,26 +726,26 @@
             <div class="poster carte-virtuelle">
                 <div class="poster-header">
                     <div class="poster-icon">
-                        <i class="fas fa-credit-card"></i>
+                        <i class="fas fa-credit-card" aria-hidden="true"></i>
                     </div>
                     <div class="poster-title">Carte Virtuelle</div>
                     <div class="poster-subtitle">Paiements Sécurisés</div>
                 </div>
                 <div class="poster-content">
                     <div class="concept-box" style="background: #2980B9;">
-                        <i class="fas fa-lightbulb"></i> Paiements 2.0
+                        <i class="fas fa-lightbulb" aria-hidden="true"></i> Paiements 2.0
                     </div>
                     <ul class="features-list">
-                        <li><span class="feature-icon"><i class="fas fa-lock"></i></span> Chiffrement militaire</li>
-                        <li><span class="feature-icon"><i class="fas fa-clock"></i></span> Cartes éphémères</li>
-                        <li><span class="feature-icon"><i class="fas fa-eye-slash"></i></span> Confidentialité totale</li>
-                        <li><span class="feature-icon"><i class="fas fa-bell"></i></span> Alertes temps réel</li>
+                        <li><span class="feature-icon"><i class="fas fa-lock" aria-hidden="true"></i></span> Chiffrement militaire</li>
+                        <li><span class="feature-icon"><i class="fas fa-clock" aria-hidden="true"></i></span> Cartes éphémères</li>
+                        <li><span class="feature-icon"><i class="fas fa-eye-slash" aria-hidden="true"></i></span> Confidentialité totale</li>
+                        <li><span class="feature-icon"><i class="fas fa-bell" aria-hidden="true"></i></span> Alertes temps réel</li>
                     </ul>
                     <div class="pricing-box">
                         <div class="price">5,000 FCFA/2 ans + 500 FCFA/mois</div>
                         <small>Essai gratuit de 30 jours</small>
                     </div>
-                    <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" class="visit-button" target="_blank">
+                    <a href="https://jeanskodoc.github.io/Carte-virtuelle-/" class="visit-button" target="_blank" aria-label="Visiter le projet Carte Virtuelle">
                         <i class="fas fa-external-link-alt"></i> Visiter le Projet
                     </a>
                 </div>
@@ -600,27 +757,27 @@
             <p>Contactez-nous dès aujourd'hui pour une consultation gratuite !</p>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <span>92 87 16 05</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     <span>jeanskodoc22@gmail.com</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                     <span>KARA, Togo</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-globe"></i>
+                    <i class="fas fa-globe" aria-hidden="true"></i>
                     <span>www.esodi-togo.com</span>
                 </div>
             </div>
-            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank" style="margin-top: 20px;">
+            <a href="https://jeanskodoc.github.io/PUBLISHED-/" class="website-link" target="_blank" aria-label="Découvrir tous nos projets en ligne" style="margin-top: 20px;">
                 <i class="fas fa-external-link-alt"></i> Découvrir Tous Nos Projets en Ligne
             </a>
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px;">
-                <i class="fas fa-user-tie"></i> 
+            <div style="margin-top: 20px; padding: 12px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9rem;">
+                <i class="fas fa-user-tie" aria-hidden="true"></i> 
                 <strong>KOLA MANIWAH ESSOHOUNA</strong> - Fondateur d'ESODI | Expert en Transformation Digitale
             </div>
         </div>
@@ -642,7 +799,7 @@
 
             posters.forEach(poster => {
                 poster.style.opacity = '0';
-                poster.style.transform = 'translateY(50px)';
+                poster.style.transform = 'translateY(30px)';
                 poster.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(poster);
             });
